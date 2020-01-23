@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 
 public class BorrowBook {
     public BorrowBook(String text) throws IOException {
-        File file = new File("c://temp//Users//"+text);
+        File file = new File("c://Users//Lennart//IdeaProject//Library//src//Users//com//company//users//"+text);
         if(Files.exists(Paths.get(text))){
         } else{
             file.createNewFile();
