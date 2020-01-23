@@ -19,7 +19,7 @@ public class Biblotek {
 
         do {
 
-            System.out.println("Welcome to Sea Wars! Please select mode using key 1, 2 or 3. Press <ENTER>");
+            System.out.println("Welcome! Please select option using key 1, 2, 3, 4 or 5. Press <ENTER>");
             System.out.println("1. Borrow Book");
             System.out.println("2. Return Book");
             System.out.println("3. Add Book to Library(Librarians only)");
@@ -38,8 +38,6 @@ public class Biblotek {
 
             switch (userChoice) {
                 case 1:
-                    System.out.println("You have chosen 'Player VS Player' (PvP)" + "\n");
-
                     //Welcoming players and let them enter their name
                     System.out.println("Please type in your username");
                     String username1 = inputFromUser.nextLine();
@@ -56,15 +54,19 @@ public class Biblotek {
 
                 case 3:
                     System.out.println("Please enter password:");
-                    String username3 = inputFromUser.nextLine();
+                    String password1 = inputFromUser.nextLine();
+                    if (password1 == "BookWorm"){
                     System.out.println("Welcome, Librarian!\n");
-
+                        break;
+}
                     break;
                 case 4:
                     System.out.println("Please enter password:");
-                    String username4 = inputFromUser.nextLine();
-                    System.out.println("Welcome, Librarian!\n");
-
+                    String password2 = inputFromUser.nextLine();
+                    if (password2 == "BookWorm"){
+                        System.out.println("Welcome, Librarian!\n");
+                        break;
+                    }
                     break;
                 case 5:
                     System.out.println("You will now Quit Sea Wars");
