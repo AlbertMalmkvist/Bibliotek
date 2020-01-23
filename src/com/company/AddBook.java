@@ -1,23 +1,22 @@
 package com.company;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Scanner;
 
 public class AddBook {
-    FileUtility fileUtility = new FileUtility();
+    public AddBook() throws IOException {
+        Scanner inputFromUser = new Scanner(System.in);
 
-    PrintWriter writer;
+        String text = inputFromUser.nextLine();
 
-    {
-        try {
-            writer = new PrintWriter("the-file-name.txt", "UTF-8");
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+        File file = new File("c://temp//Books//"+text);
+        if(Files.exists(Paths.get(text))){
+        } else{
+            file.createNewFile();
         }
     }
-}
+
+    }
