@@ -1,13 +1,12 @@
 package com.company;
 
 public class Password {
-private String check ="Sum";
+private String check ="";
 
     public Password(String password) {
-        check =  this.check;
-        if (password == "BookWorm"){
+        this.check = password;
+        if (check == "BookWorm"){
 
-            return check;
         } else {
 
         }

@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 
 public class Biblotek {
-
     private Scanner input = new Scanner(System.in);
     private boolean programStillRunning;
 
@@ -15,7 +14,9 @@ public class Biblotek {
         return programStillRunning;
     }
 
-    public void Choices() {
+    public void Choices() throws IOException {
+
+
 
         do {
 
@@ -42,26 +43,27 @@ public class Biblotek {
                     System.out.println("Please type in your username");
                     String username1 = inputFromUser.nextLine();
                     System.out.println("Welcome," + " " + username1 + "!" + "\n");
+                    String userfile1 = username1+".txt";
 
-                    BorrowBook borrowBook = new BorrowBook();
+                    BorrowBook borrowBook = new BorrowBook(userfile1);
                     break;
                 case 2:
                     System.out.println("Please type in your username");
                     String username2 = inputFromUser.nextLine();
                     System.out.println("Welcome," + " " + username2 + "!" + "\n");
+                    String userfile2 = username2+".txt";
+                ReturnBook returnBook = new ReturnBook(userfile2);
 
-                    ReturnBook returnBook = new ReturnBook();
                     break;
                 case 3:
                     System.out.println("Please enter password:");
                     String password1 = inputFromUser.nextLine();
                     Password password = new Password(password1);
-                    if (password == "BookWorm"){
-                    System.out.println("Welcome, Librarian!\n");
+                    /*if (password == "BookWorm") {
+                        System.out.println("Welcome, Librarian!\n");
+                        AddBook addBook = new AddBook();
+                    }*/
 
-                    AddBook addBook = new AddBook();
-                        break;
-}
                     break;
                 case 4:
                     System.out.println("Please enter password:");
