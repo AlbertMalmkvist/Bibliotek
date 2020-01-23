@@ -43,20 +43,22 @@ public class Biblotek {
                     String username1 = inputFromUser.nextLine();
                     System.out.println("Welcome," + " " + username1 + "!" + "\n");
 
+                    BorrowBook borrowBook = new BorrowBook();
                     break;
-
                 case 2:
                     System.out.println("Please type in your username");
                     String username2 = inputFromUser.nextLine();
                     System.out.println("Welcome," + " " + username2 + "!" + "\n");
+
+                    ReturnBook returnBook = new ReturnBook();
                     break;
-
-
                 case 3:
                     System.out.println("Please enter password:");
                     String password1 = inputFromUser.nextLine();
                     if (password1 == "BookWorm"){
                     System.out.println("Welcome, Librarian!\n");
+
+                    AddBook addBook = new AddBook();
                         break;
 }
                     break;
@@ -65,6 +67,8 @@ public class Biblotek {
                     String password2 = inputFromUser.nextLine();
                     if (password2 == "BookWorm"){
                         System.out.println("Welcome, Librarian!\n");
+
+                        RemoveBook removeBook = new RemoveBook();
                         break;
                     }
                     break;
