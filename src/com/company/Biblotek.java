@@ -55,7 +55,8 @@ public class Biblotek {
                 case 3:
                     System.out.println("Please enter password:");
                     String password1 = inputFromUser.nextLine();
-                    if (password1 == "BookWorm"){
+                    Password password = new Password(password1);
+                    if (password == "BookWorm"){
                     System.out.println("Welcome, Librarian!\n");
 
                     AddBook addBook = new AddBook();
