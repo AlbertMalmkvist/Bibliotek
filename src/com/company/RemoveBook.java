@@ -13,9 +13,13 @@ public class RemoveBook {
 
         String text = inputFromUser.nextLine();
 
-        File file = new File("c://temp//Books//"+text);
+        File file = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AllBooks//"+text);
         if(Files.exists(Paths.get(text))){
             file.delete();
+            if(Files.exists(Paths.get(text))){
+                System.out.println("This book is currently being borrowed");
+            } else{
+            }
         } else{
         }
         //FileUtility fileUtility = new FileUtility();

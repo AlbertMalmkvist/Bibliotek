@@ -12,7 +12,7 @@ public class AddBook {
 
         String text = inputFromUser.nextLine();
 
-        File file = new File("c://temp//Books//"+text);
+        File file = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AllBokks//"+text);
         if(Files.exists(Paths.get(text))){
         } else{
             file.createNewFile();
