@@ -13,9 +13,11 @@ public class AddBook {
         String text = inputFromUser.nextLine();
 
         File file = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AllBokks//"+text);
+        File filea = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AllBokks//"+text);
         if(Files.exists(Paths.get(text))){
         } else{
             file.createNewFile();
+            filea.createNewFile();
         }
     }
 

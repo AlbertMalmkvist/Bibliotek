@@ -13,7 +13,7 @@ public class BorrowBook {
         File file = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Users//"+text);
         if(Files.exists(Paths.get(text))){
         } else{
-            file.createNewFile();
+            boolean bool = file.mkdir();
         }
         Scanner input = new Scanner(System.in);
 
@@ -25,12 +25,11 @@ public class BorrowBook {
         }
 
         System.out.println("Do you wish to see the books that are not borrowed or do you wish to borrow a book right away?");
-        System.out.println("Do you wish to see the books that are not borrowed or do you wish to borrow a book right away?");
-        System.out.println("Do you wish to see the books that are not borrowed or do you wish to borrow a book right away?");
+        System.out.println("1. See list.");
+        System.out.println("2. Borrow right away.");
         switch (call){
             case 1:
-                
-                break;
+                BorrowableList borrowableList = new BorrowableList();
             case 2:
                 break;
             default:
