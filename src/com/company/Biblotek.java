@@ -43,7 +43,7 @@ public class Biblotek {
                     System.out.println("Please type in your username");
                     String username1 = inputFromUser.nextLine();
                     System.out.println("Welcome," + " " + username1 + "!" + "\n");
-                    String userfile1 = username1+".txt";
+                    String userfile1 = username1;
 
                     BorrowBook borrowBook = new BorrowBook(userfile1);
                     break;
@@ -51,7 +51,7 @@ public class Biblotek {
                     System.out.println("Please type in your username");
                     String username2 = inputFromUser.nextLine();
                     System.out.println("Welcome," + " " + username2 + "!" + "\n");
-                    String userfile2 = username2+".txt";
+                    String userfile2 = username2;
                 ReturnBook returnBook = new ReturnBook(userfile2);
 
                     break;

@@ -9,7 +9,6 @@ public class Password {
         if (pass == "Bookworm") {
             System.out.println("Welcome, librarian!\n");
 
-
             System.out.println("Please select to add or remove book to library");
             System.out.println("1. Add new book.");
             System.out.println("2. Remove existing book(Can only be done with books that are currently not being borrowed).");
