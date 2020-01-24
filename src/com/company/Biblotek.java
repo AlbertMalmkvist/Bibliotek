@@ -21,11 +21,11 @@ public class Biblotek {
         do {
 
             System.out.println("Welcome! Please select option using key 1, 2, 3, 4 or 5. Press <ENTER>");
-            System.out.println("1. Borrow Book");
-            System.out.println("2. Return Book");
-            System.out.println("3. Add Book to Library(Librarians only)");
-            System.out.println("4. Remove Book from Library(Librarians only)");
-            System.out.println("5. Quit");
+            System.out.println("1. Borrow book.");
+            System.out.println("2. Return book.");
+            System.out.println("3. Add or remove book(Librarians only).");
+            System.out.println("4. List all books.");
+            System.out.println("5. Quit.");
 
             int userChoice = 999;
             try {
@@ -57,21 +57,12 @@ public class Biblotek {
                     break;
                 case 3:
                     System.out.println("Please enter password:");
-                    String password1 = inputFromUser.nextLine();
-                    Password password = new Password(password1);
-                        System.out.println("Welcome, Librarian!\n");
-                        AddBook addBook = new AddBook();
+                    String pass = inputFromUser.nextLine();
+                    Password password = new Password(pass);
 
                     break;
                 case 4:
-                    System.out.println("Please enter password:");
-                    String password2 = inputFromUser.nextLine();
-                    if (password2 == "BookWorm"){
-                        System.out.println("Welcome, Librarian!\n");
-
-                        RemoveBook removeBook = new RemoveBook();
-                        break;
-                    }
+                    BookList bookList = new BookList();
                     break;
                 case 5:
                     System.out.println("You will now Quit Sea Wars");

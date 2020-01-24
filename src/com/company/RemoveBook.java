@@ -13,15 +13,27 @@ public class RemoveBook {
 
         String text = inputFromUser.nextLine();
 
+        int a = 0;
         File file = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AllBooks//"+text);
+
+        File afile = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AvailableBooks//"+text);
+
+        File dfile = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AvailableBooks");
+        String[] fileList = dfile.list();
+
         if(Files.exists(Paths.get(text))){
-            file.delete();
-            if(Files.exists(Paths.get(text))){
-                System.out.println("This book is currently being borrowed");
-            } else{
+        for (String name : fileList) {
+            if(name == text){
+                afile.delete();
+                file.delete();
+                a++;
+                } else{
+                }
+            }} else{
             }
-        } else{
+        if (a == 0){
+            System.out.println("This book is currently being borrowed");
+        }
         }
         //FileUtility fileUtility = new FileUtility();
-    }
     }
