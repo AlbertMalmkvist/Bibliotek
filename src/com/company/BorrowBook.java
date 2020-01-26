@@ -34,6 +34,8 @@ public class BorrowBook {
                 BorrowableList borrowableList = new BorrowableList();
                 break;
             case 2:
+                System.out.println("Enter the name of the book you wish to borrow(Enter full name of the book).");
+                String name = input.next();
                 break;
             default:
                 System.out.println("Incorrect Choice!");

@@ -7,35 +7,36 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 
 public class AddBook {
     public AddBook() throws IOException {
         Scanner inputFromUser = new Scanner(System.in);
 
+        System.out.println("Please enter book title(make sure to spell it correctly):");
+
         String text = inputFromUser.nextLine();
 
         text = text+".txt";
 
-        Path path = Paths.get("src/com/company/Books/AllBooks"+text);
+        Path path = Paths.get("src/com/company/Books/AllBooks/"+text);
         File file = new File(path.toString());
-        Path patha = Paths.get("src/com/company/Books/AvailableBooks"+text);
-        File filea= new File(path.toString());
+        Path patha = Paths.get("src/com/company/Books/AvailableBooks/"+text);
+        File filea= new File(patha.toString());
         if(Files.exists(Paths.get(text))){
         } else{
             file.createNewFile();
             filea.createNewFile();
 
+            System.out.println("Enter authors name:");
             String author = inputFromUser.nextLine();
 
-            byte[] authorByte = author.getBytes();
-            Files.write(path, authorByte);
-
-
+            System.out.println("Enter synopsis:");
             String synopsis = inputFromUser.nextLine();
 
-            byte[] synopsisByte = author.getBytes();
-            Files.write(path, synopsisByte);
+            Files.write(path, (author + System.lineSeparator()).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
+            Files.write(path, synopsis.getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
 
         }
     }

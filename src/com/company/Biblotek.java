@@ -56,8 +56,8 @@ public class Biblotek {
                     break;
                 case 3:
                     System.out.println("Please enter password:");
-                    String pass = inputFromUser.nextLine();
-                    Password password = new Password(pass);
+                    String passes = inputFromUser.next();
+                    Password password = new Password(passes);
 
                     break;
                 case 4:

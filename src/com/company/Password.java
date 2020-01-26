@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Password {
     public Password(String pass) throws IOException {
 
-        if (pass == "Bookworm") {
+        if (pass.equals("bookworm")) {
             System.out.println("Welcome, librarian!\n");
 
             System.out.println("Please select to add or remove book to library");
