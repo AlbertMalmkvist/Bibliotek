@@ -16,11 +16,13 @@ public class AddBook {
         String text = inputFromUser.nextLine();
 
         Path path = Paths.get("src/com/company/Books/AllBooks"+text);
+        File file = new File(path.toString());
         Path patha = Paths.get("src/com/company/Books/AvailableBooks"+text);
+        File filea= new File(path.toString());
         if(Files.exists(Paths.get(text))){
         } else{
-            Files.createFile(patha);
-            Files.createFile(path);
+            file.createNewFile();
+            filea.createNewFile();
 
             String author = inputFromUser.nextLine();
 

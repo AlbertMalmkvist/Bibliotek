@@ -11,9 +11,10 @@ import java.util.Scanner;
 public class BorrowBook {
     public BorrowBook(String text) throws IOException {
         Path path = Paths.get("src/com/company/Books/AvailableBooks");
+        File file = new File(path.toString());
         if(Files.exists(Paths.get(text))){
         } else{
-            
+            boolean bool = file.mkdir();
         }
         Scanner input = new Scanner(System.in);
 
