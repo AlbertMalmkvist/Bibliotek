@@ -1,27 +1,48 @@
 package com.company;
 
 
-import java.io.File;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BookList {
-    public BookList() {
-        Path path = Paths.get("src/com/company/Books/AvailableBooks");
+    public BookList() throws IOException {
+        Path path = Paths.get("src/com/company/Books/AllBooks");
         File file = new File(path.toString());
-        String[] fileList = file.list();
-        for (String name : fileList) {
-            System.out.println(name);
-            printAllLines(name);
-        }
 
 
+        File[] listOfFiles = file.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                String name = listOfFiles[i].getName();
+                System.out.println("File " + name);
+                Path paths = Paths.get("src/com/company/Books/AvailableBooks" + name);
+                File textfile = new File(paths.toString());
+                String firstLine = Files. lines(paths). findFirst(). get();
+                System. out. println("firstLine = " + firstLine);
+            }
         }
-        public void printAllLines(String filename) {
-            Path path = Paths.get("src/com/company/Books/AvailableBooks" + filename);
+    }
+        /*public void printAllLines(String filename) {
+
+            BufferedReader reader;
+            try {
+                reader = new BufferedReader(new FileReader(String.valueOf(path)));
+                String line = reader.readLine();
+                while (line != null) {
+                    System.out.println(line);
+                    // read next line
+                    line = reader.readLine();
+                }
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            /*
             List<String> lines = new ArrayList<>();
             try {
                 lines = Files.readAllLines(path);
@@ -31,8 +52,7 @@ public class BookList {
 
             } catch (Exception e){
                 e.printStackTrace();
-            }
 
+            }*/
+    }
 
-}
-}

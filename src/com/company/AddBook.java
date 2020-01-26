@@ -14,7 +14,7 @@ public class AddBook {
     public AddBook() throws IOException {
         Scanner inputFromUser = new Scanner(System.in);
 
-        System.out.println("Please enter book title(make sure to spell it correctly):");
+        System.out.println("Please enter book title(make sure to spell it correctly, with upper and lowercase letters in the right places):");
 
         String text = inputFromUser.nextLine();
 

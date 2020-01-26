@@ -12,35 +12,32 @@ public class RemoveBook {
 
         Scanner inputFromUser = new Scanner(System.in);
 
+        System.out.println("Input book title(make sure its spelled correctly, with upper and lowercase letters in the right places).");
         String text = inputFromUser.nextLine();
 
-        Path path = Paths.get("src/com/company/Books/AllBooks"+text);
+        text = text+".txt";
+
+        Path path = Paths.get("src/com/company/Books/AllBooks/"+text);
         File file = new File(path.toString());
 
 
-        Path pathA= Paths.get("src/com/company/Books/AvailableBooks"+text);
+        Path pathA= Paths.get("src/com/company/Books/AvailableBooks/"+text);
         File fileA = new File(pathA.toString());
 
         Path pathB = Paths.get("src/com/company/Books/AvailableBooks");
-
         File fileB= new File(pathB.toString());
-        String[] fileList = fileB.list();
 
-        int a = 0;
-        if(Files.exists(Paths.get(text))){
-            a=0;
-        for (String name : fileList) {
-            if(name == text){
-                fileA.delete();
-                file.delete();
-                a++;
+        File[] listOfFiles = fileB.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+            if (listOfFiles[i].isFile()) {
+                String name = listOfFiles[i].getName();
+                if (text.equals(name)){
+                    file.delete();
+                    fileA.delete();
                 } else{
                 }
-            }} else{
             }
-        if (a == 0){
-            System.out.println("This book is currently being borrowed");
-        }
         }
         //FileUtility fileUtility = new FileUtility();
     }
+}
