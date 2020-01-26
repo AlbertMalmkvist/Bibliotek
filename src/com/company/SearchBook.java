@@ -20,14 +20,19 @@ public class SearchBook {
         File[] listOfFiles = file.listFiles();
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
+                //gets the file name
                 String name = listOfFiles[i].getName();
                 Path paths = Paths.get("src/com/company/Books/AllBooks/" + name);
                 String firstLine = Files. lines(paths). findFirst(). get();
+                //removes .txt from the file name
                 name = name.replace(".txt","");
                 if (text.equals(name) || text.equals(firstLine)){
+                    //prints the name of the book based on the file name
                     System.out.println(name);
+                    //prints the name of the author
                     System.out.println(firstLine);
                     String str = Files.lines(paths).skip(1).findFirst().get();
+                    //prints the synopsis
                     System.out.println(str);
 
                 }

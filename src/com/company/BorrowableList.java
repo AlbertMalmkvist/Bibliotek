@@ -12,6 +12,8 @@ public class BorrowableList {
         Path path = Paths.get("src/com/company/Books/AvailableBooks");
         File file = new File(path.toString());
         String[] fileList = file.list();
+        //just tells you which books you can borrow at the moment
+
         for (String name : fileList) {
             System.out.println(name.replace(".txt", "")); // bookname
         }

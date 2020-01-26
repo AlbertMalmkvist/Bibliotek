@@ -12,44 +12,21 @@ public class BookList {
         File file = new File(path.toString());
 
 
+        //Gets every file in the directory AllBooks
         File[] listOfFiles = file.listFiles();
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
                 String name = listOfFiles[i].getName();
+                //prints the name of the book based on the file name, without the .txt from the file
                 System.out.println(name.replace(".txt",""));
                 Path paths = Paths.get("src/com/company/Books/AllBooks/" + name);
                 File textfile = new File(paths.toString());
+                //gets the name of the author
                 String firstLine = Files. lines(paths). findFirst(). get();
+                //prints the name of the author
                 System. out. println(firstLine);
             }
         }
     }
-        /*public void printAllLines(String filename) {
-
-            BufferedReader reader;
-            try {
-                reader = new BufferedReader(new FileReader(String.valueOf(path)));
-                String line = reader.readLine();
-                while (line != null) {
-                    System.out.println(line);
-                    // read next line
-                    line = reader.readLine();
-                }
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            /*
-            List<String> lines = new ArrayList<>();
-            try {
-                lines = Files.readAllLines(path);
-
-                System.out.println(lines.get(0)); // author
-                // System.out.println(lines.get(3)); // synopsis
-
-            } catch (Exception e){
-                e.printStackTrace();
-
-            }*/
     }
 

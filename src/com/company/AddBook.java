@@ -24,8 +24,11 @@ public class AddBook {
         File file = new File(path.toString());
         Path patha = Paths.get("src/com/company/Books/AvailableBooks/"+text);
         File filea= new File(patha.toString());
+
+        //checks so the book doesnt already exist
         if(Files.exists(Paths.get(text))){
         } else{
+            //creates two new files in the AllBooks directory and the Available Books directory
             file.createNewFile();
             filea.createNewFile();
 
@@ -35,6 +38,7 @@ public class AddBook {
             System.out.println("Enter synopsis:");
             String synopsis = inputFromUser.nextLine();
 
+            //adds the input from author on the first row and the input from synopsis on the second row.
             Files.write(path, (author + System.lineSeparator()).getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
             Files.write(path, synopsis.getBytes(),StandardOpenOption.CREATE,StandardOpenOption.APPEND);
 

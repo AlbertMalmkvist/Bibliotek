@@ -31,6 +31,7 @@ public class RemoveBook {
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
                 String name = listOfFiles[i].getName();
+                //checks in available books if the book is there, otherwise it doesnt delete the file, as someone is borrowing the book
                 if (text.equals(name)){
                     file.delete();
                     fileA.delete();
