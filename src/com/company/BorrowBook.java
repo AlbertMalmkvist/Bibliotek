@@ -13,7 +13,7 @@ public class BorrowBook {
         Path path = Paths.get("src/com/company/Books/AvailableBooks");
         if(Files.exists(Paths.get(text))){
         } else{
-            Files.createDirectory(path);
+            
         }
         Scanner input = new Scanner(System.in);
 
