@@ -3,6 +3,7 @@ package com.company;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
@@ -13,18 +14,24 @@ public class RemoveBook {
 
         String text = inputFromUser.nextLine();
 
+        Path path = Paths.get("src/com/company/Books/AllBooks"+text);
+        File file = new File(path.toString());
+
+
+        Path pathA= Paths.get("src/com/company/Books/AvailableBooks"+text);
+        File fileA = new File(pathA.toString());
+
+        Path pathB = Paths.get("src/com/company/Books/AvailableBooks");
+
+        File fileB= new File(pathB.toString());
+        String[] fileList = fileB.list();
+
         int a = 0;
-        File file = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AllBooks//"+text);
-
-        File afile = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AvailableBooks//"+text);
-
-        File dfile = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Books//AvailableBooks");
-        String[] fileList = dfile.list();
-
         if(Files.exists(Paths.get(text))){
+            a=0;
         for (String name : fileList) {
             if(name == text){
-                afile.delete();
+                fileA.delete();
                 file.delete();
                 a++;
                 } else{

@@ -10,10 +10,10 @@ import java.util.Scanner;
 
 public class BorrowBook {
     public BorrowBook(String text) throws IOException {
-        File file = new File("c://Users//Lennart//IdeaProjects//Library//src//com//company//Users//"+text);
+        Path path = Paths.get("src/com/company/Books/AvailableBooks");
         if(Files.exists(Paths.get(text))){
         } else{
-            boolean bool = file.mkdir();
+            Files.createDirectory(path);
         }
         Scanner input = new Scanner(System.in);
 

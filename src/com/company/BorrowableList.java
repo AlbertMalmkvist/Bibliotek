@@ -14,22 +14,6 @@ public class BorrowableList {
         String[] fileList = file.list();
         for (String name : fileList) {
             System.out.println(name); // bookname
-            printAllLines(name);
         }
     }
-
-    public void printAllLines(String filename) {
-        Path path = Paths.get("src/com/company/Books/AvailableBooks" + filename);
-        List<String> lines = new ArrayList<>();
-        try {
-            lines = Files.readAllLines(path);
-
-            System.out.println(lines.get(0)); // author
-            // System.out.println(lines.get(3)); // synopsis
-
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-
     }
-}
