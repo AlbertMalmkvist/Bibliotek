@@ -15,6 +15,8 @@ public class AddBook {
 
         String text = inputFromUser.nextLine();
 
+        text = text+".txt";
+
         Path path = Paths.get("src/com/company/Books/AllBooks"+text);
         File file = new File(path.toString());
         Path patha = Paths.get("src/com/company/Books/AvailableBooks"+text);

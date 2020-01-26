@@ -25,7 +25,8 @@ public class Biblotek {
             System.out.println("2. Return book.");
             System.out.println("3. Add or remove book(Librarians only).");
             System.out.println("4. List all books.");
-            System.out.println("5. Quit.");
+            System.out.println("5. Search for book name or author.");
+            System.out.println("6. Quit.");
 
             int userChoice = 999;
             try {
@@ -43,16 +44,14 @@ public class Biblotek {
                     System.out.println("Please type in your username");
                     String username1 = inputFromUser.nextLine();
                     System.out.println("Welcome," + " " + username1 + "!" + "\n");
-                    String userfile1 = username1;
 
-                    BorrowBook borrowBook = new BorrowBook(userfile1);
+                    BorrowBook borrowBook = new BorrowBook(username1);
                     break;
                 case 2:
                     System.out.println("Please type in your username");
                     String username2 = inputFromUser.nextLine();
                     System.out.println("Welcome," + " " + username2 + "!" + "\n");
-                    String userfile2 = username2;
-                ReturnBook returnBook = new ReturnBook(userfile2);
+                ReturnBook returnBook = new ReturnBook(username2);
 
                     break;
                 case 3:
@@ -65,8 +64,12 @@ public class Biblotek {
                     BookList bookList = new BookList();
                     break;
                 case 5:
+                    SearchBook searchBook = new SearchBook();
+                    break;
+                case 6:
                     System.out.println("You will now Quit Sea Wars");
                     System.exit(0); // Shuts down program
+                    break;
                 default:
                     System.out.println("Incorrect Choice!");
             }
