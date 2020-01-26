@@ -16,11 +16,11 @@ public class BookList {
         for (int i = 0; i < listOfFiles.length; i++) {
             if (listOfFiles[i].isFile()) {
                 String name = listOfFiles[i].getName();
-                System.out.println("File " + name);
-                Path paths = Paths.get("src/com/company/Books/AvailableBooks" + name);
+                System.out.println(name.replace(".txt",""));
+                Path paths = Paths.get("src/com/company/Books/AllBooks/" + name);
                 File textfile = new File(paths.toString());
                 String firstLine = Files. lines(paths). findFirst(). get();
-                System. out. println("firstLine = " + firstLine);
+                System. out. println(firstLine);
             }
         }
     }
