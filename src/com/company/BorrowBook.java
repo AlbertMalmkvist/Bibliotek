@@ -17,6 +17,10 @@ public class BorrowBook {
         }
         Scanner input = new Scanner(System.in);
 
+        System.out.println("Do you wish to see the books that are not borrowed or do you wish to borrow a book right away?");
+        System.out.println("1. See list.");
+        System.out.println("2. Borrow right away.");
+
         int call = 999;
         try {
             String str = input.next();
@@ -24,9 +28,6 @@ public class BorrowBook {
         } catch (Exception e) {
         }
 
-        System.out.println("Do you wish to see the books that are not borrowed or do you wish to borrow a book right away?");
-        System.out.println("1. See list.");
-        System.out.println("2. Borrow right away.");
         switch (call){
             case 1:
                 BorrowableList borrowableList = new BorrowableList();
