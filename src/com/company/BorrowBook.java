@@ -10,8 +10,9 @@ import java.util.Scanner;
 
 public class BorrowBook {
     public BorrowBook(String text) throws IOException {
-        Path path = Paths.get("src/com/company/Books/AvailableBooks");
+        Path path = Paths.get("src/com/company/Users/"+text);
         File file = new File(path.toString());
+
         if(Files.exists(Paths.get(text))){
         } else{
             boolean bool = file.mkdir();
@@ -34,8 +35,32 @@ public class BorrowBook {
                 BorrowableList borrowableList = new BorrowableList();
                 break;
             case 2:
-                System.out.println("Enter the name of the book you wish to borrow(Enter full name of the book).");
-                String name = input.next();
+                System.out.println("Enter the name of the book you wish to borrow(Enter full name of the book, with upper and lowercase letters in the right places).");
+                String textfile = input.next();
+
+                textfile = textfile+".txt";
+
+                Path pathC = Paths.get("src/com/company/Users/"+text+"/"+textfile);
+                File fileC = new File(pathC.toString());
+
+                Path pathA= Paths.get("src/com/company/Books/AvailableBooks/"+textfile);
+                File fileA = new File(pathA.toString());
+
+                Path pathB = Paths.get("src/com/company/Books/AvailableBooks");
+                File fileB= new File(pathB.toString());
+
+                File[] listOfFiles = fileB.listFiles();
+                for (int i = 0; i < listOfFiles.length; i++) {
+                    if (listOfFiles[i].isFile()) {
+                        String name = listOfFiles[i].getName();
+                        if (textfile.equals(name)) {
+                            fileA.delete();
+                            fileC.createNewFile();
+                        } else {
+                            System.out.println("Not available(make sure you did not misspell).");
+                        }
+                    }
+                }
                 break;
             default:
                 System.out.println("Incorrect Choice!");
