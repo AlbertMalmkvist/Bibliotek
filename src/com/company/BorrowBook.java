@@ -25,7 +25,7 @@ public class BorrowBook {
 
         int call = 999;
         try {
-            String str = input.next();
+            String str = input.nextLine();
             call = Integer.parseInt(str);
         } catch (Exception e) {
         }
@@ -36,7 +36,7 @@ public class BorrowBook {
                 break;
             case 2:
                 System.out.println("Enter the name of the book you wish to borrow(Enter full name of the book, with upper and lowercase letters in the right places).");
-                String textfile = input.next();
+                String textfile = input.nextLine();
 
                 textfile = textfile+".txt";
 
@@ -57,7 +57,6 @@ public class BorrowBook {
                             fileA.delete();
                             fileC.createNewFile();
                         } else {
-                            System.out.println("Not available(make sure you did not misspell).");
                         }
                     }
                 }
