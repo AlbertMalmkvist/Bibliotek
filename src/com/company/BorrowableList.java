@@ -13,7 +13,7 @@ public class BorrowableList {
         File file = new File(path.toString());
         String[] fileList = file.list();
         for (String name : fileList) {
-            System.out.println(name); // bookname
+            System.out.println(name.replace(".txt", "")); // bookname
         }
     }
     }
