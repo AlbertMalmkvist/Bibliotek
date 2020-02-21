@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class ReturnBook {
+
     public ReturnBook(String text) throws IOException {
         //Im getting the pathing i need to use the programs
         Path path = Paths.get("src/com/company/Users/"+text);
@@ -60,7 +61,8 @@ public class ReturnBook {
 
                     //checks what you have put in against the name of every file in the directory under the users name to see if it kan find a match with the name of the book you put in
                     File[] listOfFiles = file.listFiles();
-                    for (int i = 0; i < listOfFiles.length; i++) {
+                    int i = 0;
+                    for (File filename : listOfFiles) {
                         if (listOfFiles[i].isFile()) {
                             String name = listOfFiles[i].getName();
                             if (textfile.equals(name)) {
@@ -69,6 +71,7 @@ public class ReturnBook {
                                 fileA.createNewFile();
                             } else {
                             }
+                            i++;
                         }
                     }
                     break;

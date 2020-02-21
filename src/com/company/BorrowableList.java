@@ -14,8 +14,10 @@ public class BorrowableList {
         String[] fileList = file.list();
         //just tells you which books you can borrow at the moment
 
+        int i = 0;
         for (String name : fileList) {
-            System.out.println(name.replace(".txt", "")); // bookname
+            i++;
+            System.out.println(i+(". ")+name.replace(".txt", "")+("\n")); // bookname
         }
     }
     }

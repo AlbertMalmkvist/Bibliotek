@@ -2,7 +2,6 @@ package com.company;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
@@ -28,11 +27,11 @@ public class RemoveBook {
         File fileB= new File(pathB.toString());
 
         File[] listOfFiles = fileB.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                String name = listOfFiles[i].getName();
+        for (File filename : listOfFiles) {
+            if (filename.isFile()) {
+                String name = filename.getName();
                 //checks in available books if the book is there, otherwise it doesnt delete the file, as someone is borrowing the book
-                if (text.equals(name)){
+                if (text.toLowerCase().equals(name.toLowerCase())){
                     file.delete();
                     fileA.delete();
                 } else{

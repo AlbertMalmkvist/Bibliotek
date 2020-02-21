@@ -34,8 +34,9 @@ public class BorrowBook {
         switch (call){
             case 1:
                 BorrowableList borrowableList = new BorrowableList();
-                break;
             case 2:
+
+
                 System.out.println("Enter the name of the book you wish to borrow(Enter full name of the book, with upper and lowercase letters in the right places).");
                 //name of the book
                 String textfile = input.nextLine();
@@ -43,23 +44,31 @@ public class BorrowBook {
                 //adds this so it will become a text file
                 textfile = textfile+".txt";
 
-                //just needed a different name then before
-                Path pathA= Paths.get("src/com/company/Books/AvailableBooks/"+textfile);
-                File fileA = new File(pathA.toString());
 
                 Path pathB = Paths.get("src/com/company/Books/AvailableBooks");
                 File fileB= new File(pathB.toString());
 
-                //it would not use the same pathing I used the first time, but it works as part of it
-                Path pathC = Paths.get("src/com/company/Users/"+text+"/"+textfile);
-                File fileC = new File(pathC.toString());
 
                 //checks what you have put in against the name of every file in the directory named Available books to see if it kan find a match with the name of the book you put in
                 File[] listOfFiles = fileB.listFiles();
-                for (int i = 0; i < listOfFiles.length; i++) {
+
+                int i = 0;
+                for (File filename : listOfFiles) {
                     if (listOfFiles[i].isFile()) {
                         String name = listOfFiles[i].getName();
-                        if (textfile.equals(name)) {
+                        i++;
+
+                        String nummeralIndex = String.valueOf(i);
+
+                        //just needed a different name then before
+                        Path pathA= Paths.get("src/com/company/Books/AvailableBooks/"+name);
+                        File fileA = new File(pathA.toString());
+
+                        //it would not use the same pathing I used the first time, but it works as part of it
+                        Path pathC = Paths.get("src/com/company/Users/"+text+"/"+name);
+                        File fileC = new File(pathC.toString());
+
+                        if (textfile.equals(name) || textfile.equals(nummeralIndex)) {
                             //removes the book from the directory AvailableBooks and make another one with the same name in the directory under the users name
                             fileA.delete();
                             fileC.createNewFile();

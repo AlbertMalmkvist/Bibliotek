@@ -14,9 +14,9 @@ public class BookList {
 
         //Gets every file in the directory AllBooks
         File[] listOfFiles = file.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                String name = listOfFiles[i].getName();
+        for (File filename : listOfFiles) {
+            if (filename.isFile()) {
+                String name = filename.getName();
                 //prints the name of the book based on the file name, without the .txt from the file
                 System.out.println(name.replace(".txt",""));
                 Path paths = Paths.get("src/com/company/Books/AllBooks/" + name);
@@ -24,7 +24,7 @@ public class BookList {
                 //gets the name of the author
                 String firstLine = Files. lines(paths). findFirst(). get();
                 //prints the name of the author
-                System. out. println(firstLine);
+                System. out. println(firstLine+("\n"));
             }
         }
     }

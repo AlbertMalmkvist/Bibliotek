@@ -13,12 +13,15 @@ public class SearchBook {
         File file = new File(path.toString());
         Scanner inputFromUser = new Scanner(System.in);
 
-        System.out.println("What is the name of the book or author(make sure to spell it correctly, with upper and lowercase letters in the right places)?");
+        System.out.println("What is the name of the book or author?");
 
         String text = inputFromUser.nextLine();
 
+        int i = 0;
         File[] listOfFiles = file.listFiles();
-        for (int i = 0; i < listOfFiles.length; i++) {
+
+        for (File filename : listOfFiles) {
+
             if (listOfFiles[i].isFile()) {
                 //gets the file name
                 String name = listOfFiles[i].getName();
@@ -26,17 +29,24 @@ public class SearchBook {
                 String firstLine = Files. lines(paths). findFirst(). get();
                 //removes .txt from the file name
                 name = name.replace(".txt","");
-                if (text.equals(name) || text.equals(firstLine)){
-                    //prints the name of the book based on the file name
-                    System.out.println(name);
-                    //prints the name of the author
-                    System.out.println(firstLine);
-                    String str = Files.lines(paths).skip(1).findFirst().get();
-                    //prints the synopsis
-                    System.out.println(str);
+                //gets the synopsis
+                String str = Files.lines(paths).skip(1).findFirst().get();
+                i++;
 
+                if (name.toLowerCase().contains(text.toLowerCase())){
+                    printing(name, firstLine, str);
                 }
+
             }
         }
+    }
+    public void printing(String name, String firstLine, String str){
+        //prints the name of the book based on the file name
+        System.out.println(name);
+        //prints the name of the author
+        System.out.println(firstLine);
+        //prints the synopsis
+        System.out.println(str + ("\n"));
+        return;
     }
 }
