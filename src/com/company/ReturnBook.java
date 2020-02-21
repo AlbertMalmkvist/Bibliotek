@@ -35,43 +35,51 @@ public class ReturnBook {
                 case 1:
                     //just tells you which books you have borrowed at the moment
                     String[] fileList = file.list();
+                    int i = 1;
                     for (String name : fileList) {
-                        System.out.println(name.replace(".txt", "")); // bookname
+                        System.out.println(i+(". ")+name.replace(".txt", "")); // bookname
+                        i++;
                     }
 
-                    break;
                 case 2:
                     System.out.println("Enter the name of the book you wish to return(Enter full name of the book, with upper and lowercase letters in the right places).");
                     //name of the book
                     String textfile = input.nextLine();
 
-                    //adds this so it will become a text file
-                    textfile = textfile+".txt";
 
-                    //just needed a different name then before
-                    Path pathA= Paths.get("src/com/company/Books/AvailableBooks/"+textfile);
-                    File fileA = new File(pathA.toString());
 
                     Path pathB = Paths.get("src/com/company/Books/AvailableBooks");
                     File fileB= new File(pathB.toString());
 
-                    //it would not use the same pathing I used the first time, but it works as part of it
-                    Path pathC = Paths.get(file+"/"+textfile);
-                    File fileC = new File(pathC.toString());
 
                     //checks what you have put in against the name of every file in the directory under the users name to see if it kan find a match with the name of the book you put in
                     File[] listOfFiles = file.listFiles();
-                    int i = 0;
+
+                    int i2 = 0;
+
                     for (File filename : listOfFiles) {
-                        if (listOfFiles[i].isFile()) {
-                            String name = listOfFiles[i].getName();
-                            if (textfile.equals(name)) {
+                        if (listOfFiles[i2].isFile()) {
+                            String name = listOfFiles[i2].getName();
+
+                            i2++;
+                            String nummeralIndex = String.valueOf(i2);
+
+                            //just needed a different name then before
+                            Path pathA= Paths.get("src/com/company/Books/AvailableBooks/"+name);
+                            File fileA = new File(pathA.toString());
+
+                            //it would not use the same pathing I used the first time, but it works as part of it
+                            Path pathC = Paths.get(file+"/"+name);
+                            File fileC = new File(pathC.toString());
+
+                            //adds this so it will become a text file
+                            name = name.replace(".txt","");
+                            if (textfile.equals(name)||textfile.equals(nummeralIndex)) {
                                 //removes the book from the directory under the users name and make another one with the same name in the directory AvailableBooks
                                 fileC.delete();
                                 fileA.createNewFile();
                             } else {
                             }
-                            i++;
                         }
                     }
                     break;

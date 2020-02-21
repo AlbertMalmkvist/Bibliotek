@@ -41,10 +41,6 @@ public class BorrowBook {
                 //name of the book
                 String textfile = input.nextLine();
 
-                //adds this so it will become a text file
-                textfile = textfile+".txt";
-
-
                 Path pathB = Paths.get("src/com/company/Books/AvailableBooks");
                 File fileB= new File(pathB.toString());
 
@@ -68,6 +64,8 @@ public class BorrowBook {
                         Path pathC = Paths.get("src/com/company/Users/"+text+"/"+name);
                         File fileC = new File(pathC.toString());
 
+                        //adds this so it will become a text file
+                        name = name.replace(".txt","");
                         if (textfile.equals(name) || textfile.equals(nummeralIndex)) {
                             //removes the book from the directory AvailableBooks and make another one with the same name in the directory under the users name
                             fileA.delete();
