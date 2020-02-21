@@ -79,4 +79,10 @@ public class BorrowBook {
                 System.out.println("Incorrect Choice!");
         }
     }
+    public void FirstChoice(){
+
+    }
+    public void SecondChoice(){
+
+    }
 }

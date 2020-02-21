@@ -4,7 +4,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Password {
+
     public Password(String pass) throws IOException {
+        Code(pass);
+    }
+
+    public void Code(String pass) throws IOException {
 
         if (pass.equals("bookworm")) {
             System.out.println("Welcome, librarian!\n");
@@ -35,5 +40,6 @@ public class Password {
             System.out.println("Incorrect password");
 
         }
+
     }
 }
