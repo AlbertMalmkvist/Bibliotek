@@ -8,6 +8,10 @@ import java.nio.file.Paths;
 
 public class BookList {
     public BookList() throws IOException {
+        Code();
+    }
+
+    public void Code() throws IOException {
         Path path = Paths.get("src/com/company/Books/AllBooks");
         File file = new File(path.toString());
 
@@ -27,9 +31,6 @@ public class BookList {
                 System. out. println(firstLine+("\n"));
             }
         }
-    }
-    public void Code(){
-
     }
     }
 

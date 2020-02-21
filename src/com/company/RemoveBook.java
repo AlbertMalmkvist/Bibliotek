@@ -7,11 +7,14 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class RemoveBook {
-    public RemoveBook() throws IOException {
+    public RemoveBook(){
+        Code();
+    }
 
+    public void Code(){
         Scanner inputFromUser = new Scanner(System.in);
 
-        System.out.println("Input book title(make sure its spelled correctly, with upper and lowercase letters in the right places).");
+        System.out.println("Input book title(make sure its spelled correctly).");
         String text = inputFromUser.nextLine();
 
         text = text+".txt";
@@ -38,8 +41,5 @@ public class RemoveBook {
                 }
             }
         }
-    }
-    public void Code(){
-
     }
 }

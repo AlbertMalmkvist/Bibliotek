@@ -10,7 +10,6 @@ public class Password {
     }
 
     public void Code(String pass) throws IOException {
-
         if (pass.equals("bookworm")) {
             System.out.println("Welcome, librarian!\n");
 
@@ -35,11 +34,8 @@ public class Password {
                 default:
                     System.out.println("Incorrect Choice!");
             }
-
         } else{
             System.out.println("Incorrect password");
-
         }
-
     }
 }

@@ -9,6 +9,10 @@ import java.util.List;
 
 public class BorrowableList {
     public BorrowableList() {
+        Code();
+    }
+
+    public void Code(){
         Path path = Paths.get("src/com/company/Books/AvailableBooks");
         File file = new File(path.toString());
         String[] fileList = file.list();
@@ -20,7 +24,4 @@ public class BorrowableList {
             System.out.println(i+(". ")+name.replace(".txt", "")+("\n")); // bookname
         }
     }
-    public void Code(){
-
-    }
-    }
+}

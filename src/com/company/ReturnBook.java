@@ -24,7 +24,6 @@ public class ReturnBook {
         //checking if there is a directory in their name already, so they can´t return a book if they have never borrowed one
         if(Files.exists(Paths.get("src/com/company/Users/"+text))){
 
-
             System.out.println("Do you wish to see the books that you have borrowed or do you wish to return a book right away?");
             System.out.println("1. See list.");
             System.out.println("2. Return right away.");
@@ -48,7 +47,6 @@ public class ReturnBook {
         }else{
             System.out.println("You have not borrowed any books before.\n");
         }
-
     }
 
     public void FirstChoice(File file){
@@ -66,11 +64,8 @@ public class ReturnBook {
         //name of the book
         String textfile = input.nextLine();
 
-
-
         Path pathB = Paths.get("src/com/company/Books/AvailableBooks");
         File fileB= new File(pathB.toString());
-
 
         //checks what you have put in against the name of every file in the directory under the users name to see if it kan find a match with the name of the book you put in
         File[] listOfFiles = file.listFiles();
@@ -102,6 +97,5 @@ public class ReturnBook {
                 }
             }
         }
-
     }
 }

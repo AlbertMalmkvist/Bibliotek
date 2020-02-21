@@ -9,11 +9,15 @@ import java.util.Scanner;
 
 public class SearchBook {
     public SearchBook() throws IOException {
+        MostCode();
+    }
+
+    public void MostCode() throws IOException {
         Path path = Paths.get("src/com/company/Books/AllBooks");
         File file = new File(path.toString());
         Scanner inputFromUser = new Scanner(System.in);
 
-        System.out.println("What is the name of the book or author?");
+        System.out.println("What is the name of the book or author?(You don´t need all of the title or name)");
 
         String text = inputFromUser.nextLine();
 
@@ -33,16 +37,13 @@ public class SearchBook {
                 String str = Files.lines(paths).skip(1).findFirst().get();
                 i++;
 
-                if (name.toLowerCase().contains(text.toLowerCase())){
+                if (name.toLowerCase().contains(text.toLowerCase())||firstLine.toLowerCase().contains(text.toLowerCase())){
                     printing(name, firstLine, str);
                 }
-
             }
         }
     }
-    public void MostCode(){
-
-    }
+    
     public void printing(String name, String firstLine, String str){
         //prints the name of the book based on the file name
         System.out.println(name);
